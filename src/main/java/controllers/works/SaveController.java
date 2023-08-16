@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class SaveController implements Controller {
     @Override
     public void get(HttpServletRequest req, HttpServletResponse resp) {
-
+        System.out.println("Save Controller!");
     }
 
     @Override

@@ -16,12 +16,12 @@ public class WorksURLRouter implements URLRouter {
     @Override
     public void route(HttpServletRequest req, HttpServletResponse resp, String location) {
         String mode = getMode(req.getRequestURI(), location);
-        mode = mode == null ? " list" : mode;
+        mode = mode == null || mode.isBlank() ? "list" : mode;
         if (mode.matches("\\d")) { // 작업조회 모드
             mode = "view";
         }
         Controller controller = null;
-        if (mode.equals("list")){
+        if (mode.equals("list")) {
             controller = new ListController();
         } else if (mode.equals("view")) {
             controller = new ViewController();
@@ -30,6 +30,7 @@ public class WorksURLRouter implements URLRouter {
         } else if (mode.equals("delete")) {
             controller = new DeleteController();
         }
+        if (controller == null) return;
 
         String method = req.getMethod().toUpperCase(); // 요청 메서드
         if (method.equals("POST")) {
