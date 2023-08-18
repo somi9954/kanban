@@ -26,7 +26,7 @@ public class DBConnection {
         }
     }
 
-    public static SqlSession getSession(){
+    public static SqlSession getSession() {
         return sqlSessionFactory.openSession();
     }
 }

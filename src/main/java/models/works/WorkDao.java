@@ -1,18 +1,18 @@
 package models.works;
 
-import com.mysql.cj.jdbc.MysqlSQLXML;
 import configs.DBConnection;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
 public class WorkDao {
+
     /**
-     *  작업 저장
+     * 작업 저장
      *
      * @param work
-     *
-     *  @retrun
+     *              - workNo가 있으면 수정, 없으면 추가
+     * @return
      */
     public boolean save(Work work) {
         SqlSession sqlSession = DBConnection.getSession();
@@ -20,13 +20,15 @@ public class WorkDao {
         int affectedRows = 0;
         if (workNo > 0L) { // 수정
             affectedRows = sqlSession.update("WorkListMapper.edit", work);
-        } else  {  // 추가
+        } else { // 추가
             affectedRows = sqlSession.insert("WorkListMapper.add", work);
         }
 
         sqlSession.commit();
+
         return affectedRows > 0;
     }
+
     /**
      * 삭제
      *
@@ -38,15 +40,16 @@ public class WorkDao {
         Work params = new Work();
         params.setWorkNo(workNo);
 
-        int affectedRow = sqlSession.delete("WorkListMapper.delete", params);
+        int affectedRows = sqlSession.delete("WorkListMapper.delete", params);
 
         sqlSession.commit();
 
-        return affectedRow > 0;  // 임시
+        return affectedRows > 0;
     }
+
     /**
-     * 개별 조회
-     *
+     * 개별 조회 
+     * 
      * @param workNo
      * @return
      */
@@ -60,17 +63,18 @@ public class WorkDao {
 
         return work;
     }
+
     /**
      * 목록 조회
      * @param work
      *          - status, subject, content에 따라서 검색 조건 생성
      * @return
      */
-    public List<Work> get (Work work) {
+    public List<Work> gets(Work work) {
         SqlSession sqlSession = DBConnection.getSession();
 
         List<Work> items = sqlSession.selectList("WorkListMapper.list", work);
 
         return items;
     }
- }
+}

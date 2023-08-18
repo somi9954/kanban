@@ -7,19 +7,19 @@
     2. 톰캣 서버 셋팅<br>
 </details>
 
-## 2일차
+## 2일차 
 
 * 초기설정
   - 데이터베이스 연결 설정 (mybatis)
 
 * 레이아웃 구성
 * 컨트롤러, 모델, 뷰 구성하기 (MVC)
-    - 컨트롤러 구성
-      -회원쪽 컨트롤러
+    - 컨트롤러 구성 
+      - 회원쪽 컨트롤러 
         - 회원가입 - /member/join
         - 로그인 - /member/login
         - 정보수정 - /member/info
-     - 작업관리 컨트롤러
+      - 작업관리 컨트롤러
         - 작업목록 - /works
         - 작업등록 - /works/add
         - 작업조회 - /works/작업번호
@@ -27,16 +27,17 @@
         - 작업삭제 - /works/delete/등록번호
 
 ## 3일차
-* 컨트롤러 구성
-  - 아이디 찾기 - /member/find_id
+* 컨트롤러 구성 
+  - 아이디 찾기 - /member/find_id 
   - 비밀번호 찾기 - /member/find_pw
-
-* 모델 구성
-  - models/works/SaveService.java : 작업 등록, 수정
+  
+* 모델 구성 
+  - models/works/SaveService.java : 작업 등록, 수정 
   - models/works/InfoService.java : 작업 조회(개별 + 목록)
-  - models/works/DeleteService.java : 작업 삭제
+  - models/works/DeleteService.java : 작업 삭제 
   - models/works/WorkDao.java : 작업 CRUD
-  - models/works/Work : 작업 DTO
+  - models/works/Work.java : 작업 DTO
+  - 
 * 뷰 구성
   - 회원가입 양식 : /WEB-INF/view/member/join.jsp + _form.jsp(공통 양식)
   - 정보 수정 양식 : /WEB-INF/view/member/info.jsp + _form.jsp(공통 양식)
@@ -48,4 +49,4 @@
   - 작업 등록 : /WEB-INF/works/add.jsp + _form.jsp(공통 양식)
   - 작업 수정 : /WEB-INF/works/edit.jsp + _form.jsp(공통 양식)
 
-* 칸반 등록, 수정, 삭제, 조회
+* 칸반 등록, 수정, 삭제, 조회 

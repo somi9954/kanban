@@ -9,7 +9,7 @@ public class FindIdController implements Controller {
     @Override
     public void get(HttpServletRequest req, HttpServletResponse resp) {
 
-        ViewUtils.load(req,resp,"member","find_id");
+        ViewUtils.load(req, resp, "member", "find_id");
     }
 
     @Override

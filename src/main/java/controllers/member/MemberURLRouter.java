@@ -15,17 +15,18 @@ public class MemberURLRouter implements URLRouter {
         if (mode == null || mode.isBlank()) {
             return;
         }
-        String method = request.getMethod().toUpperCase(); // 요청 메서드
+
+        String method = request.getMethod().toUpperCase(); //  요청 메서드
 
         if (mode.equals("join")) { // 회원가입
             controller = new JoinController();
-        }else if (mode.equals("login")) { // 로그인
+        } else if (mode.equals("login")) { //로그인 
             controller = new LoginController();
-        }else if (mode.equals("info")) {  // 회원정보 확인
+        } else if (mode.equals("info")) { // 회원정보 확인
             controller = new InfoController();
         } else if (mode.equals("find_id")) { // 아이디 찾기
             controller = new FindIdController();
-        }else if (mode.equals("find_pw")) { // 비밀번호 찾기
+        } else if (mode.equals("find_pw")) { // 비밀번호 찾기
             controller = new FindPwController();
         }
 
@@ -37,4 +38,5 @@ public class MemberURLRouter implements URLRouter {
             }
         }
     }
+
 }

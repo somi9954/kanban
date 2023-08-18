@@ -15,7 +15,7 @@ public interface URLRouter {
         Pattern p = Pattern.compile(pattern);
         Matcher matcher = p.matcher(URL);
         if (matcher.find()) {
-           mode = matcher.group(1);
+            mode = matcher.group(1);
         }
 
         return mode;

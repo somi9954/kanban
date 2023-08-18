@@ -9,7 +9,7 @@ public class ViewController implements Controller {
     @Override
     public void get(HttpServletRequest req, HttpServletResponse resp) {
 
-        ViewUtils.load(req,resp,"works", "view");
+        ViewUtils.load(req, resp, "works", "view");
     }
 
     @Override

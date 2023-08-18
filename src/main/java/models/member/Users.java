@@ -12,6 +12,6 @@ public class Users {
     private String userNm; // 사용자명
     private String email;
     private String mobile;
-    private LocalDateTime regDt; // 가입일자
+    private LocalDateTime regDt; // 가입일자 
     private LocalDateTime modDt; // 수정일자
 }

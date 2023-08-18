@@ -11,7 +11,7 @@ public class SaveController implements Controller {
         String URI = req.getRequestURI();
         String mode = URI.indexOf("edit") != -1 ? "edit" : "add";
 
-        ViewUtils.load(req,resp,"works",mode);
+        ViewUtils.load(req, resp, "works", mode);
     }
 
     @Override
