@@ -1,4 +1,4 @@
-package models.work;
+package models.works;
 
 public enum Status {
     READY,

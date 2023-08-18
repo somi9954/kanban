@@ -1,17 +1,15 @@
-package controllers.works;
+package controllers.member;
 
 import commons.ViewUtils;
 import controllers.Controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class SaveController implements Controller {
+public class FindIdController implements Controller {
     @Override
     public void get(HttpServletRequest req, HttpServletResponse resp) {
-        String URI = req.getRequestURI();
-        String mode = URI.indexOf("edit") != -1 ? "edit" : "add";
 
-        ViewUtils.load(req,resp,"works",mode);
+        ViewUtils.load(req,resp,"member","find_id");
     }
 
     @Override
