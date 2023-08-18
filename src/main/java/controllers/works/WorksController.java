@@ -9,10 +9,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+
 /**
  * 작업목록 - /works
  * 작업등록 - /works/add
- *작업수정 - /works/등록번호
+ * 작업수정 - /works/등록번호
  * 작업삭제 - /works/delete/등록번호
  */
 @WebServlet("/works/*")
@@ -21,16 +22,16 @@ public class WorksController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-       router = new WorksURLRouter();
+        router = new WorksURLRouter();
     }
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        router.route(req,resp,"works");
+        router.route(req, resp, "works");
     }
 
     @Override
-   public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        router.route(req,resp,"works");
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        router.route(req, resp, "works");
     }
 }

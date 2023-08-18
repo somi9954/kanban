@@ -15,15 +15,17 @@ public class MemberURLRouter implements URLRouter {
         if (mode == null || mode.isBlank()) {
             return;
         }
-        String method = request.getMethod().toUpperCase(); // 요청 메서드
+
+        String method = request.getMethod().toUpperCase(); //  요청 메서드
 
         if (mode.equals("join")) { // 회원가입
             controller = new JoinController();
-        }else if (mode.equals("login")) { // 로그인
+        } else if (mode.equals("login")) { //로그인 
             controller = new LoginController();
-        }else if (mode.equals("info")) {  // 회원정보 확인
+        } else if (mode.equals("info")) { // 회원정보 확인
             controller = new InfoController();
         }
+
         if (controller != null) {
             if (method.equals("POST")) {
                 controller.post(request, response);
@@ -32,4 +34,5 @@ public class MemberURLRouter implements URLRouter {
             }
         }
     }
+
 }
