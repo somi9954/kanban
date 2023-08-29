@@ -1,7 +1,11 @@
 package models.works;
 
 public class DeleteService {
-    private models.works.WorkDao workDao = new models.works.WorkDao();
+    private WorkDao workDao;
+
+    public DeleteService(WorkDao workDao) {
+        this.workDao = workDao;
+    }
 
     public void delete(long workNo) {
 

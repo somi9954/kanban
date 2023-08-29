@@ -1,11 +1,15 @@
 package models.works;
 
 public class InfoService {
-    private models.works.WorkDao workDao = new models.works.WorkDao();
+    private WorkDao workDao;
 
-    public models.works.Work get(long workNo) {
+    public void setWorkDao(WorkDao workDao) {
+        this.workDao = workDao;
+    }
 
-        models.works.Work work = workDao.get(workNo);
+    public Work get(long workNo) {
+
+       Work work = workDao.get(workNo);
 
         return work;
     }
