@@ -1,5 +1,6 @@
 package controllers.works;
 
+import commons.UrlUtils;
 import commons.ViewUtils;
 import controllers.Controller;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,34 +17,27 @@ import static commons.ScriptUtils.alertError;
 public class ViewController implements Controller {
     @Override
     public void get(HttpServletRequest req, HttpServletResponse resp) {
-        try{
+
+        try {
             InfoService infoService = WorkServiceManager.getInstance().infoService();
-            Work work = infoService.get(getWorkNo(req));
+            long workNo = UrlUtils.getPatternData(req, "works/(\\d*)");
+            Work work = infoService.get(workNo);
             if (work == null) {
                 throw new WorkNotFoundException();
             }
 
             req.setAttribute("work", work);
 
-        }catch (Exception e) {
+            ViewUtils.load(req, resp, "works", "view");
+
+        } catch (Exception e) {
             alertError(resp, e, -1);
         }
-        ViewUtils.load(req, resp, "works", "view");
     }
+
 
     @Override
     public void post(HttpServletRequest req, HttpServletResponse resp) {
 
-    }
-
-    private long getWorkNo (HttpServletRequest req) {
-        String pattern = "works/(]]d*)";
-        Pattern p = Pattern.compile(pattern);
-        Matcher matcher = p.matcher(req.getRequestURI());
-        if(matcher.find()) {
-            return Long.parseLong(matcher.group(1));
-        }
-
-        return 0L;
     }
 }
