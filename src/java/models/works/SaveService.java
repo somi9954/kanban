@@ -14,7 +14,9 @@ public class SaveService {
         // 유효성 검사
       validator.check(work);
 
-        workDao.save(work); // 의존
-
+      boolean result = workDao.save(work);
+      if(!result) { // 등록 실패
+        throw new WorkSaveException();
+      }
     }
 }
