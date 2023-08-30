@@ -1,9 +1,6 @@
 package controllers.works;
 
-import models.works.DeleteService;
-import models.works.InfoService;
-import models.works.SaveService;
-import models.works.WorkDao;
+import models.works.*;
 
 public class WorkServiceManager {
     private static WorkServiceManager instance;
@@ -18,10 +15,13 @@ public class WorkServiceManager {
     public WorkDao workDao() {
         return new WorkDao();
     }
+    public WorkSaveValidator workSaveValidator() {
+        return new WorkSaveValidator();
+    }
 
     public SaveService saveService () {
 
-        return new SaveService(workDao());
+        return new SaveService(workDao(), workSaveValidator());
     }
 
     public InfoService infoService() {
