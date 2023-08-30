@@ -27,4 +27,17 @@ public class InfoService {
 
         return data;
     }
+    /** 작업 준비중 목록 */
+    public List<Work> getListReady() {
+        return  getList(Status.READY);
+    }
+
+   public List<Work> getList(Status status) {
+        Work work = new Work();
+        work.setStatus(status);
+
+        Map<Status, List<Work>> items = getList(work);
+
+        return items == null ? null : items.get(status);
+    }
 }
