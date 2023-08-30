@@ -3,7 +3,7 @@
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <c:url var="action" value="/works/add" />
 <layout:main title="작업 등록">
-    <form name="frmSave" method="POST" action="${action}" autocomplete="off">
+    <form name="frmSave" method="POST" action="${action}" autocomplete="off" target="ifrmProcess">
         <jsp:include page="_form.jsp" />
 
         <div class="btns">

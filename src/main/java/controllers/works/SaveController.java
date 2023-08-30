@@ -1,10 +1,12 @@
 package controllers.works;
 
+import static commons.ScriptUtils.*;
 import commons.ViewUtils;
 import controllers.Controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.works.SaveService;
+
 
 public class SaveController implements Controller {
     @Override
@@ -24,8 +26,8 @@ public class SaveController implements Controller {
         try {
             saveService.save(req);
 
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            alertError(resp, e);
             e.printStackTrace();
         }
     }
