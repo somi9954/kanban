@@ -14,12 +14,12 @@ public class SaveService {
 
     public void save(Work work) {
         // 유효성 검사
-      validator.check(work);
+        validator.check(work);
 
-      boolean result = workDao.save(work);
-      if(!result) { // 등록 실패
-        throw new WorkSaveException();
-      }
+        boolean result = workDao.save(work);
+        if(!result) { // 등록 실패
+            throw new WorkSaveException();
+        }
     }
 
     public void save(HttpServletRequest req) {
@@ -28,14 +28,14 @@ public class SaveService {
         work.setContent(req.getParameter("content"));
 
         String status = req.getParameter("status");
-        work.setStatus(status == null || status.isBlank() ? Status.READY :Status.valueOf(status));
+        work.setStatus(status == null || status.isBlank() ? Status.READY : Status.valueOf(status));
 
         String workNo = req.getParameter("workNo");
-        if (workNo == null && workNo.isBlank()) {
+        if (workNo != null && !workNo.isBlank()) {
             work.setWorkNo(Long.parseLong(workNo));
         }
 
         save(work);
-
     }
+
 }
