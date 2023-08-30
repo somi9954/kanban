@@ -32,6 +32,19 @@ public class InfoService {
         return  getList(Status.READY);
     }
 
+    /** 작업 진행중 목록 */
+    public List<Work> getListProgress() {
+        return getList(Status.PROGRESS);
+    }
+    /** 작업 완료 목록 */
+    public List<Work> getListDone() {
+        return getList(Status.DONE);
+    }
+    /** 작업 보류 목록 */
+    public List<Work> getListPostPone() {
+        return getList(Status.POSTPONE);
+    }
+
    public List<Work> getList(Status status) {
         Work work = new Work();
         work.setStatus(status);
