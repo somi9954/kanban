@@ -4,6 +4,7 @@ import commons.ViewUtils;
 import controllers.Controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.works.SaveService;
 
 public class SaveController implements Controller {
     @Override
@@ -19,6 +20,13 @@ public class SaveController implements Controller {
 
     @Override
     public void post(HttpServletRequest req, HttpServletResponse resp) {
+        SaveService saveService = WorkServiceManager.getInstance().saveService();
+        try {
+            saveService.save(req);
 
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
