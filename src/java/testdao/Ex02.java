@@ -1,5 +1,6 @@
 package testdao;
 
+import controllers.works.WorkServiceManager;
 import models.works.SaveService;
 import models.works.Status;
 import models.works.Work;
@@ -7,8 +8,9 @@ import models.works.WorkDao;
 
 public class Ex02 {
     public static void main(String[] args) {
-        WorkDao workDao = new WorkDao();
-        SaveService saveService = new SaveService(workDao);
+        WorkServiceManager serviceManager = new WorkServiceManager();
+        SaveService saveService = serviceManager.saveService();
+
         Work work = new Work();
         work.setStatus(Status.PROGRESS);
         work.setSubject("작업 제목...");
