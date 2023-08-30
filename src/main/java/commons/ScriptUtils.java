@@ -13,8 +13,20 @@ public class ScriptUtils {
         PrintWriter out = resp.getWriter();
         out.printf("<script>alert('%s');</script>", e.getMessage());
     } catch (IOException e2) {
-
         }
+    }
+
+    public static void go(HttpServletResponse resp, String url, String target) {
+        target = target == null || target.isBlank() ? "self" : target;
+        try {
+            resp.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = resp.getWriter();
+            out.printf("<script>%s.location.replace('%s');</script>" , target, url);
+        }catch (IOException e) {}
+    }
+
+    public static void go(HttpServletResponse resp, String url) {
+        go(resp, url, null);
     }
     }
 
