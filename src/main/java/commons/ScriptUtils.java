@@ -7,13 +7,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class ScriptUtils {
-    public static void alertError(HttpServletResponse resp, Exception e) {
+    public static void alertError(HttpServletResponse resp, Exception e, int goStep) {
         try{
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
         out.printf("<script>alert('%s');</script>", e.getMessage());
+
+            if (goStep != 0) {
+                out.printf("<script>history.go(%d);</script>", goStep);
+            }
     } catch (IOException e2) {
         }
+    }
+
+    public static void alertError(HttpServletResponse resp, Exception e) {
+        alertError(resp, e, 0);
     }
 
     public static void go(HttpServletResponse resp, String url, String target) {
