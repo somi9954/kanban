@@ -4,11 +4,11 @@
     <dt>작업 상태</dt>
     <dd>
         <c:if test="${statusList != null}">
-        <c:forEach var="status" items="${statusList}" varStatus="s">
-            <input type="radio" name="status" value="${status[0]}" id="status_${s.index}"
-            ${work.status.name() == status[0] ? "checked":""}>
-            <label for="status_${s.index}">${status[1]}</label>
-        </c:forEach>
+            <c:forEach var="status" items="${statusList}" varStatus="s">
+                <input type="radio" name="status" value="${status[0]}" id="status_${s.index}"
+                    ${work.status.name() == status[0] ? " checked":""} class="rdo_tab">
+                <label for="status_${s.index}">${status[1]}</label>
+            </c:forEach>
         </c:if>
     </dd>
 </dl>
@@ -21,6 +21,6 @@
 <dl>
     <dt>작업 내용</dt>
     <dd>
-        <textarea name="content" id= "content">${work.content}</textarea>
+        <textarea name="content" id="content">${work.content}</textarea>
     </dd>
 </dl>
