@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 public class JoinService {
     private UsersDao usersDao;
-    private  JoinValidator validator;
+    private JoinValidator validator;
 
     public JoinService(UsersDao usersDao, JoinValidator validator) {
         this.usersDao = usersDao;
@@ -18,12 +18,13 @@ public class JoinService {
         validator.check(userForm);
 
         // 유효성 검사 성공시 DB 처리
-         if(!usersDao.register(userForm)){
+        if (!usersDao.register(userForm)) {
             throw new JoinValidationException("회원가입 실패하였습니다.");
-         }
+        }
     }
 
     public void join(HttpServletRequest req) {
+
         UserForm userForm = UserForm.builder()
                 .userId(req.getParameter("userId"))
                 .userPw(req.getParameter("userPw"))
@@ -31,7 +32,7 @@ public class JoinService {
                 .userNm(req.getParameter("userNm"))
                 .email(req.getParameter("email"))
                 .mobile(req.getParameter("mobile"))
-                .agree(req.getParameter("agree") == null ? false :true)
+                .agree(req.getParameter("agree") == null ? false : true)
                 .build();
 
         join(userForm);

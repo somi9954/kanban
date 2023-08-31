@@ -8,9 +8,8 @@
 <layout:main title="로그인">
     <form id="frmLogin" name="frmLogin" method="POST" action="${action}" autocomplete="off">
 
-                <input type="text" name="userId" placeholder="아이디">
-
-                <input type="password" name="userPw" placeholder="비밀번호">
+        <input type="text" name="userId" placeholder="아이디">
+        <input type="password" name="userPw" placeholder="비밀번호">
 
         <div>
             <input type="checkbox" name="saveId" value="true" id="saveId">

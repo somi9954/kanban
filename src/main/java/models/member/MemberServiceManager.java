@@ -2,17 +2,18 @@ package models.member;
 
 public class MemberServiceManager {
 
-    private  static  MemberServiceManager instance;
+    private static MemberServiceManager instance;
 
     private MemberServiceManager() {}
 
-    public static MemberServiceManager getInstance(){
+    public static MemberServiceManager getInstance() {
         if (instance == null) {
             instance = new MemberServiceManager();
         }
 
         return instance;
     }
+
     public UsersDao usersDao() {
         return new UsersDao();
     }
@@ -21,7 +22,7 @@ public class MemberServiceManager {
         return new JoinValidator(usersDao());
     }
 
-    public JoinService joinService(){
-        return new JoinService(usersDao(),joinValidator());
+    public JoinService joinService() {
+        return new JoinService(usersDao(), joinValidator());
     }
 }

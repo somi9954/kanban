@@ -11,11 +11,11 @@ public class UsersDao {
         String hash = BCrypt.hashpw(users.getUserPw(), BCrypt.gensalt(12));
         users.setUserPw(hash);
 
-        int affectedRows = sqlSession.insert("Usermapper.add", users);
+        int affectedRows = sqlSession.insert("UserMapper.add", users);
 
         sqlSession.commit();
 
-        return affectedRows > 0 ;
+        return affectedRows > 0;
     }
 
     public Users get(String userId) {
@@ -29,11 +29,11 @@ public class UsersDao {
     }
 
     public boolean exists(String userId) {
-    SqlSession sqlSession = DBConnection.getSession();
-    UserForm params = new UserForm();
-    params.setUserNm(userId);
-    int cnt  = sqlSession.selectOne("UserMapper.exists", params);
+        SqlSession sqlSession = DBConnection.getSession();
+        UserForm params = new UserForm();
+        params.setUserId(userId);
+        int cnt = sqlSession.selectOne("UserMapper.exists", params);
 
-    return cnt > 0;
+        return cnt > 0;
     }
 }
