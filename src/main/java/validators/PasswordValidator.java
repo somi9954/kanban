@@ -16,7 +16,7 @@ public interface PasswordValidator {
         }
 
         // 레벨3 -  특수문자가 1개 이상
-        if (level > 2 && !pass.matches("[`~!@#^%&*()\\-_=+]+")){
+        if (level > 2 && !pass.matches("[`~!@#\\^%&\\*()\\-_=\\+]+")){
             return false;
         }
         return true;
