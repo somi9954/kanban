@@ -18,7 +18,9 @@ public class JoinValidator implements Validator<UserForm>, RequiredValidator {
          * 2. 아이디 자리수는 6자리 이상, 비밀번호는 8자리 이상
          * 3. 아이디 중복 여부
          * 4. userPw(비밀번호), userPwRe(비밀번호 확인) 일치
-         * 5. 회원 가입 약관 동의 여부
+         * 5. 비밀번호 복잡성(1개 이상의 알파벳 + 반드시 대문자 1개 이상 포함, 숫자 1개 이상, 특수문자)
+         * 6. 휴대전화번호 검증
+         * 7. 회원 가입 약관 동의 여부
          */
 
         String userId = userForm.getUserId();
@@ -54,5 +56,6 @@ public class JoinValidator implements Validator<UserForm>, RequiredValidator {
         }
 
         // 5. 회원 가입 약관 동의 여부
+        checkTrue(userForm.isAgree(),new JoinValidationException("약관에 동의해 주세요."));
     }
 }
