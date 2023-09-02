@@ -1,5 +1,6 @@
 package controllers.works;
 
+import commons.MemberUtil;
 import commons.UrlUtils;
 import commons.ViewUtils;
 import controllers.Controller;
@@ -25,6 +26,8 @@ public class ViewController implements Controller {
             if (work == null) {
                 throw new WorkNotFoundException();
             }
+
+            MemberUtil.isMine(req, work.getUserNo()); // 본인이 작성한 작업 내용인지 체크
 
             req.setAttribute("work", work);
 

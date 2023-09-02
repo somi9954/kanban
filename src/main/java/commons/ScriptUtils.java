@@ -13,11 +13,14 @@ public class ScriptUtils {
         PrintWriter out = resp.getWriter();
         out.printf("<script>alert('%s');</script>", e.getMessage());
 
+        if (e instanceof NotAuthorizeException) { // 본인의 작업 내용이 아닐때 뒤로 가기
+            goStep = -1;
+        }
+
             if (goStep != 0) {
                 out.printf("<script>history.go(%d);</script>", goStep);
             }
-    } catch (IOException e2) {
-        }
+    } catch (IOException e2) {}
     }
 
     public static void alertError(HttpServletResponse resp, Exception e) {
@@ -36,5 +39,5 @@ public class ScriptUtils {
     public static void go(HttpServletResponse resp, String url) {
         go(resp, url, null);
     }
-    }
+}
 
