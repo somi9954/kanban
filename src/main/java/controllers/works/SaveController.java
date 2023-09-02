@@ -42,7 +42,7 @@ public class SaveController implements Controller {
 
             req.setAttribute("work", work);
 
-            String[] addScript = {"ckeditor/ckeditor", "work/form"};
+            String[] addScript = {"ckeditor/ckeditor", "work/fileUpload", "work/form"};
             req.setAttribute("addScript", addScript);
 
             ViewUtils.load(req, resp, "works", mode);
