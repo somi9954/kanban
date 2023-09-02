@@ -21,6 +21,7 @@ header { background: #000; }
 #site_top a { color: #fff; font-size: 1.5rem; }
 #site_top a * { color: #fff; font-size: 1.65rem; vertical-align: middle; }
 #site_top .right a { margin-left: 10px; }
+#site_top .userinfo { font-size: 1.1rem; color: #fff; margin-right: 10px; }
 
 /** 공통 스타일 */
 h1 { font-size: 1.9rem; border-bottom: 1px solid #000; padding-bottom: 12px; margin-bottom: 30px; }

@@ -1,7 +1,9 @@
 <%@ tag body-content="scriptless" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layouts" %>
 <%@ attribute name="title" %>
+<fmt:setBundle basename="messages.commons" />
 <c:url var="mainUrl" value="/" />
 <c:url var="loginUrl" value="/member/login" />
 <c:url var="logoutUrl" value="/member/logout" />
@@ -27,6 +29,12 @@
                     </a>
                 </c:if>
                 <c:if test="${sessionScope.users != null}">
+                    <span class="userinfo">
+                        <fmt:message key="LOGIN.MESSAGE">
+                            <fmt:param>${userInfo.userNm}</fmt:param>
+                            <fmt:param>${userInfo.userId}</fmt:param>
+                        </fmt:message>
+                    </span>
                     <a href="${workListUrl}">
                         <i class="xi-list"></i> 작업목록
                     </a>
